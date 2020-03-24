@@ -26,7 +26,6 @@
 **For uploading the code**  
 
  **For testing the code**
-|Table 1|Table 2|
 
 |  ESP01          |  ARDUINO         |
 |-----------------|------------------|
@@ -40,6 +39,7 @@
 |  RX             |	 PIN10           |
 
  **For testing the code**
+ 
  |  ESP01          |  ARDUINO         |
  |-----------------|------------------|
  |  TX             |  PIN11           |
