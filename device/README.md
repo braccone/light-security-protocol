@@ -20,8 +20,10 @@
 
 # CONNECTING HARDWARE
 
-<img src="images/esp8226-programming.png">
+<img src="../images/esp8226-programming.png">
 
+|  ESP01          |  ARDUINO         |
+|-----------------|------------------|
 |  *TX* ESP01     |  *PIN11* ARDUINO |
 |  *GND* ESP01    |  *GND* ARDUINO   |
 |  *CHPD* ESP01   |  *3.3V* ARDUINO  |
