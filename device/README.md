@@ -23,28 +23,16 @@
 
 <img src="../images/esp8226-programming.png" />
 
-**For uploading the code**
+**For uploading the code**              **For testing the code**
 
-|  ESP01          |  ARDUINO         |
-|-----------------|------------------|
-|  TX             |  PIN11           |
-|  GND            |  GND             |
-|  CHPD           |  3.3V            |
-|  GPIO2          |                  |
-|  **GPIO0**      |  **GND**         | 
-|  RST	          |                  |
-|  3.3V           |	 3.3V - 5V       |
-|  RX             |	 PIN10           |
+|  ESP01          |  ARDUINO         |  |  ESP01          |  ARDUINO         |
+|-----------------|------------------|  |-----------------|------------------|
+|  TX             |  PIN11           |  |  TX             |  PIN11           |
+|  GND            |  GND             |  |  GND            |  GND             |
+|  CHPD           |  3.3V            |  |  CHPD           |  3.3V            |
+|  GPIO2          |                  |  |  GPIO2          |                  |
+|  **GPIO0**      |  **GND**         |  |  **GPIO0**      |                  |
+|  RST	          |                  |  |  RST	          |                  |
+|  3.3V           |	 3.3V - 5V       |  |  3.3V           |	 3.3V - 5V       |
+|  RX             |	 PIN10           |  |  RX             |	 PIN10           |
 
-**For testing the code**
-
-|  ESP01          |  ARDUINO         |
-|-----------------|------------------|
-|  TX             |  PIN11           |
-|  GND            |  GND             |
-|  CHPD           |  3.3V            |
-|  GPIO2          |                  |
-|  **GPIO0**      |  **GND**         | 
-|  RST	          |                  |
-|  3.3V           |	 3.3V - 5V       |
-|  RX             |	 PIN10           |
