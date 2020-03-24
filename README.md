@@ -1,14 +1,11 @@
 # light-security-protocol
 Lightweight security protocol written for arduino esp8266-01 and python
-
-Quickmarks analytics offers a few key features:  
+  
 - A client-side Python  
 - A server-side Python  
 - A device-side Arduino
  
 ## Installation
- 
-Here's how you track your website with Quickmarks:
  
 TODO: **ADD INFO**
  
