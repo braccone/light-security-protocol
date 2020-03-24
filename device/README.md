@@ -1,34 +1,50 @@
-# Requirements
+# DEVICE CONFIGURATION
+## Requirements
 
-## Hardware
+### Hardware
 - ESP8266 ESP-01 ( flash 1 MB - 80 MHz)
 - ARDUINO UNO
 
-## Software
+### Software
 - AESLib (https://github.com/suculent/thinx-aes-lib)
 - ESP8226 lib: should be set in the preferences of the ide Arduino the following URL-> http://arduino.esp8266.com/stable/package_esp8266com_index.json
 
-# (Important) AES encryption (MODE CBC)
-## ENCRYPTION
+## (Important) AES encryption (MODE CBC)
+### ENCRYPTION
 1. encryption return an hex
 2. hex is transformed in base64
 
-## DECRYPTION
+### DECRYPTION
 1. decode base64
 2. the decrypted result is in base64
 3. decode base64
 
-# CONNECTING HARDWARE
+## CONNECTING HARDWARE
 
-<img src="../images/esp8226-programming.png">
+<img src="../images/esp8226-programming.png" />
+
+**For uploading the code**
 
 |  ESP01          |  ARDUINO         |
 |-----------------|------------------|
-|  *TX* ESP01     |  *PIN11* ARDUINO |
-|  *GND* ESP01    |  *GND* ARDUINO   |
-|  *CHPD* ESP01   |  *3.3V* ARDUINO  |
-|  *GPIO2* ESP01  |                  |
-|  *GPIO0* ESP01  |                  |
-|  *RST* ESP01	  |                  |
-|  *3V3* ESP01    |	 *3.3V* ARDUINO  |
-|  *RX* ESP01     |	 *PIN10* ARDUINO |
+|  TX             |  PIN11           |
+|  GND            |  GND             |
+|  CHPD           |  3.3V            |
+|  GPIO2          |                  |
+|  **GPIO0**      |  **GND**         | 
+|  RST	          |                  |
+|  3.3V           |	 3.3V - 5V       |
+|  RX             |	 PIN10           |
+
+**For testing the code**
+
+|  ESP01          |  ARDUINO         |
+|-----------------|------------------|
+|  TX             |  PIN11           |
+|  GND            |  GND             |
+|  CHPD           |  3.3V            |
+|  GPIO2          |                  |
+|  **GPIO0**      |  **GND**         | 
+|  RST	          |                  |
+|  3.3V           |	 3.3V - 5V       |
+|  RX             |	 PIN10           |
