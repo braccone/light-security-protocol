@@ -50,3 +50,7 @@
  |  RST	           |                  |
  |  3.3V           |	 3.3V - 5V    |
  |  RX             |	 PIN10        |
+
+## PROTOCOL HEADER
+
+

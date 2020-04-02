@@ -11,8 +11,8 @@ String nonceServer;
 String clientID;
 
 // WiFI VARIABLES
-const char *ssid = "braccone-wifi";
-const char *password = "vm16-4u5g-utbi";
+const char *ssid = "";
+const char *password = "";
 
 WiFiUDP Udp;
 unsigned int localUdpPort = 8888; // local port to listen on

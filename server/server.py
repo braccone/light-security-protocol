@@ -58,11 +58,11 @@ while(True):
         clientMsg = bytesAddressPair[0]
 
         clientIP = bytesAddressPair[1]
-
+        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         print(f"Message from Client: {clientMsg}")
         print(f"Client IP Address: {clientIP}")
 
-        if clientMsg[0].__eq__('1'):
+        if clientMsg.decode('utf-8')[0] == '1':
             print("-------------FIRST MESSAGE----------------------------")
             # decrypt the MSG 3 Ek,c[OP,PosC, M1, N2]
             msg = clientMsg[1:]
@@ -74,13 +74,14 @@ while(True):
             M1 = msgClient1[2]
             N2 = msgClient1[3]
             print(f"msgClient1: {msgClient1}")
-
+            print(f"M1 : {M1}")
             # decrypt with key device M1
             msgDevice1 = device.decrypt(M1)
+            print(f"Decrypte M1: {msgDevice1}")
             msgDevice1 = msgDevice1.decode("utf-8").split(",")
-            clientID = msgDevice1[0]
-            deviceID = msgDevice1[1]
-            N1 = msgDevice1[2]
+            deviceID = msgDevice1[0]
+            N1 = msgDevice1[1]
+            clientID = msgDevice1[2]
             print(f"msgDevice1 : {msgDevice1}")
             # device.decrypt("")
 
@@ -103,34 +104,38 @@ while(True):
             # send to client Ek,c [OTP, N2]
             UDPServerSocket.sendto(M4, clientIP)
             print(f"Message 4 sent")
+            print(clientMsg[0] == '2')
 
-        if clientMsg[0].__eq__('2'):
+        if clientMsg.decode('utf-8')[0] == '2':
             print("-------------SECOND MESSAGE----------------------------")
             # decrypt M2 = Ek,d[IDd, OP, Res, N3]
-            print(f"Message 2 received: {clientMsg} ")
             msg = clientMsg[1:]
-            msg = msg.split(",")
-            Res = msg[0]
-            M2 = msg[1]
+            msg = msg.decode('utf-8').split(",")
+            M2 = msg[0]
+            Res = msg[1]
             decryptedM2 = device.decrypt(M2)
+            print(f"Message 2 received-----------------------------------: {msg} ")
             decryptedM2 = decryptedM2.decode("utf-8").split(",")
-            IDd = decryptedM2[0]
-            OP = decryptedM2[1]
-            ResM2 = decryptedM2[2]
-            nonce3M2 = decryptedM2[3]
-
+            nonce3M2 = decryptedM2[0]
+            IDd = decryptedM2[1]
+            OP = decryptedM2[2]
+            ResM2 = decryptedM2[3]
+            print(f"Decrypted M2: {decryptedM2}")
             # check NONCE N3
             if (nonce3M2 != N3):
+                print(f"Wrong nonce from client: {nonce3M2} -- {N3}")
                 pass
 
             # check if M2 contains the same RES
             if(Res != ResM2):
+                print("Wrong RES from client")
                 pass
 
-            signedM2 = Signature().sign(M2)
+            signedM2 = Signature().sign(M2.encode("utf-8"))
+            print(f"signed: {signedM2}")
             # Save M2 signature in the blockchain
 
-            UDPServerSocket.sendto(b"ok", clientIP)
+            # UDPServerSocket.sendto(b"ok", clientIP)
     except Exception as e:
         print(f"Server Error: {e}")
         pass

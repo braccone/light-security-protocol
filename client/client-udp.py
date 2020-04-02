@@ -49,7 +49,7 @@ BUFFERSIZE = 1024
 
 # indirizzo della scheda arduino
 DEVICE_PORT = 8888
-DEVICE_IPADDR = '192.168.1.100'
+DEVICE_IPADDR = '192.168.1.102'
 
 device_address = (DEVICE_IPADDR, DEVICE_PORT)
 
@@ -106,17 +106,17 @@ try:
             print(f"Last Message from device: {data}")
             if(server[0].__eq__(device_address)):
                 # decrypt with client key
-                messageFromDevice2 = data.split(",")
-                RES = messageFromDevice2[0]
-                M2 = messageFromDevice2[1]
-                sentToDevice = sock.sendto(data, server_address)
+                messageFromDevice2 = data.decode("utf-8").split(",")
+                RES = messageFromDevice2[1]
+                M2 = messageFromDevice2[0]
+                sentToDevice = sock.sendto(b"2"+data, server_address)
 
-    print('received {!r}'.format(data))
-    plaintext = decrypt(data)
-    #plaintext = cipher.decrypt(data)
-    print('decrypted msg: ', plaintext.decode("utf-8"))
-    print('sending {!r}'.format(testSplit))
-    sent = sock.sendto(testSplit, server_address)
+    # print('received {!r}'.format(data))
+    # plaintext = decrypt(data)
+    # #plaintext = cipher.decrypt(data)
+    # print('decrypted msg: ', plaintext.decode("utf-8"))
+    # print('sending {!r}'.format(testSplit))
+    # sent = sock.sendto(testSplit, server_address)
 except Exception as e:
     print(f"Key incorrect or message corrupted: {e}")
 finally:
